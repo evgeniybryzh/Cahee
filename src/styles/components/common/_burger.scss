@@ -1,0 +1,134 @@
+@media screen and (max-width: $screen-tablet) {
+  .menu__toggle {
+    opacity: 0;
+  }
+
+  .menu__btn {
+    display: flex; /* используем flex для центрирования содержимого */
+    align-items: center; /* центрируем содержимое кнопки */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  /* добавляем "гамбургер" */
+
+  /* контейнер меню */
+  .menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 400px;
+    margin: 0;
+    padding: 10px 10px;
+    list-style: none;
+    text-align: center;
+    background-color: $gallery-bg-color;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid $gallery-bg-color;
+    border-radius: 20%;
+  }
+
+  /* элементы меню */
+  .menu__item {
+    width: 70%;
+    display: block;
+    padding: 12px 18px;
+    color: #333;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0 auto;
+    border: 4px dotted $about-bg-color;
+    margin-bottom: 5px;
+    border-radius: 35px;
+  }
+
+  // открытие-закрытие меню
+  .menu__item:hover {
+    background-color: $about-bg-color;
+  }
+  #menu__toggle:checked ~ .menu__btn > span {
+    width: 100%;
+  }
+  #menu__toggle:checked ~ .menu__btn > span::before {
+    width: 50%;
+  }
+  #menu__toggle:checked ~ .menu__btn > span::after {
+    width: 50%;
+  }
+  #menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    left: 0;
+  }
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    transition-duration: 0.25s;
+  }
+  .menu__box {
+    transition-duration: 0.25s;
+  }
+  .menu__item {
+    transition-duration: 0.25s;
+  }
+}
+@media screen and (min-width: $screen-tablet) {
+  .menu__toggle {
+    opacity: 0;
+  }
+}
+/* добавляем "гамбургер" */
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 60px;
+  height: 60px;
+}
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #000;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.ham1 .top {
+  stroke-dasharray: 40 139;
+}
+.ham1 .bottom {
+  stroke-dasharray: 40 180;
+}
+.ham1.active .top {
+  stroke-dashoffset: -98px;
+}
+.ham1.active .bottom {
+  stroke-dashoffset: -138px;
+}
+
+.ham {
+  display: block;
+}
+@media screen and (min-width: $screen-tablet) {
+  .ham {
+    display: none;
+  }
+}
